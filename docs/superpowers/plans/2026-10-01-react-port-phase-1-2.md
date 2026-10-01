@@ -886,7 +886,7 @@ git commit -m "feat: add standings row with leader tag, movement and faded zero 
 **Files:**
 - Create: `src/components/Header.jsx`, `src/components/LiveBadge.jsx`, `src/components/ColumnHead.jsx`, `src/components/Tower.jsx`
 
-- [ ] **Step 1: Write `src/components/LiveBadge.jsx`**
+- [x] **Step 1: Write `src/components/LiveBadge.jsx`**
 
 ```jsx
 export default function LiveBadge({ live = false }) {
@@ -899,7 +899,7 @@ export default function LiveBadge({ live = false }) {
 }
 ```
 
-- [ ] **Step 2: Write `src/components/Header.jsx`**
+- [x] **Step 2: Write `src/components/Header.jsx`**
 
 ```jsx
 import { useEffect, useState } from 'react'
@@ -941,7 +941,7 @@ export default function Header({ title, live = false }) {
 }
 ```
 
-- [ ] **Step 3: Write `src/components/ColumnHead.jsx`**
+- [x] **Step 3: Write `src/components/ColumnHead.jsx`**
 
 ```jsx
 export default function ColumnHead() {
@@ -955,7 +955,7 @@ export default function ColumnHead() {
 }
 ```
 
-- [ ] **Step 4: Write `src/components/Tower.jsx`**
+- [x] **Step 4: Write `src/components/Tower.jsx`**
 
 ```jsx
 import Row from './Row.jsx'
@@ -970,7 +970,7 @@ export default function Tower({ rows, moves = {} }) {
 }
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/components/Header.jsx src/components/LiveBadge.jsx src/components/ColumnHead.jsx src/components/Tower.jsx
