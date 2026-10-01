@@ -53,10 +53,10 @@
 }
 
 /* ---------- Column header ---------- */
-:root { --grid: clamp(74px, 8.5vw, 124px) minmax(0, 1fr) clamp(230px, 32vw, 560px); }
+:root { --grid: clamp(56px, 4.8vw, 82px) minmax(0, 1fr) clamp(230px, 32vw, 560px); }
 .colhead {
   display: grid; grid-template-columns: var(--grid); align-items: center;
-  gap: clamp(8px, 1.2vw, 22px); padding: 0 clamp(14px, 1.4vw, 24px) 0 clamp(18px, 1.6vw, 30px);
+  gap: clamp(6px, 0.8vw, 14px); padding: 0 clamp(14px, 1.4vw, 24px) 0 clamp(18px, 1.6vw, 30px);
   font-weight: 700; text-transform: uppercase; letter-spacing: .16em;
   font-size: clamp(8px, 1.02vh, 11.5px); color: var(--ink-faint);
 }
@@ -66,7 +66,7 @@
 .board { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: clamp(3px, .5vh, 7px); }
 .row {
   flex: 1 1 0; min-height: 0; position: relative; display: grid; grid-template-columns: var(--grid);
-  align-items: center; gap: clamp(8px, 1.2vw, 22px); overflow: hidden;
+  align-items: center; gap: clamp(6px, 0.8vw, 14px); overflow: hidden;
   padding: 0 clamp(14px, 1.4vw, 24px) 0 clamp(18px, 1.6vw, 30px);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .055), transparent 44%),
@@ -107,12 +107,12 @@
 .row.p1 .who .code { font-size: clamp(20px, 3.8vh, 46px); color: #fff; letter-spacing: .02em; }
 .row.p1 .who .name { font-size: clamp(11px, 1.55vh, 18px); color: #e9d9b0; font-weight: 700; }
 .row.p1 .pos .box {
-  min-width: clamp(38px, 4.1vw, 64px);
-  height: clamp(34px, 5.2vh, 60px);
+  min-width: clamp(34px, 3.2vw, 52px);
+  height: clamp(32px, 4.8vh, 56px);
   background: linear-gradient(160deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3));
   border-left-color: #fff2c8;
 }
-.row.p1 .pos .box b { font-size: clamp(22px, 4.2vh, 50px); color: #241700; }
+.row.p1 .pos .box b { font-size: clamp(20px, 3.8vh, 44px); color: #241700; }
 .row.p1 .emblem.chip {
   width: clamp(56px, 9vh, 110px); height: clamp(56px, 9vh, 110px);
   box-shadow: 0 0 0 3px #fff, 0 0 0 5.5px var(--uc, #c3ccdb), 0 8px 20px -6px rgba(0, 0, 0, .8);
@@ -125,6 +125,19 @@
   font-family: var(--display); font-weight: 700; font-size: clamp(9px, 1.3vh, 14px); letter-spacing: .16em;
   text-transform: uppercase; color: #241700; background: linear-gradient(160deg, var(--gold-1), var(--gold-2));
   clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+}
+
+/* ---------- Position ---------- */
+.pos { display: flex; align-items: center; gap: clamp(4px, .5vw, 8px); }
+.pos .box {
+  position: relative; display: grid; place-items: center;
+  min-width: clamp(28px, 2.5vw, 42px); height: clamp(26px, 3.8vh, 46px);
+  background: rgba(255, 255, 255, .05); border-left: 3px solid var(--uc, #38507a);
+  transform: skewX(-13deg);
+}
+.pos .box b {
+  transform: skewX(13deg); font-family: var(--display); font-weight: 900;
+  font-variant-numeric: tabular-nums; font-size: clamp(16px, 2.8vh, 34px); line-height: 1; color: var(--ink);
 }
 .mv {
   display: flex; align-items: center; gap: 1px; font-family: var(--display); font-weight: 700;
