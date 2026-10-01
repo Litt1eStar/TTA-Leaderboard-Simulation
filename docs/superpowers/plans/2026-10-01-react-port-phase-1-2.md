@@ -123,7 +123,7 @@ git commit -m "docs: add project brief, prototype, logos and implementation plan
 **Files:**
 - Create: `package.json`, `vite.config.js`, `index.html`, `.gitignore`, `src/main.jsx`, `src/App.jsx`, `src/VenuePage.jsx` (temporary stub), `src/admin/AdminPage.jsx`
 
-- [ ] **Step 1: Write `package.json`**
+- [x] **Step 1: Write `package.json`**
 
 ```json
 {
@@ -142,7 +142,7 @@ git commit -m "docs: add project brief, prototype, logos and implementation plan
 }
 ```
 
-- [ ] **Step 2: Install dependencies**
+- [x] **Step 2: Install dependencies**
 
 ```bash
 npm install react react-dom react-router @fontsource/titillium-web @fontsource/noto-sans-thai
@@ -150,7 +150,7 @@ npm install -D vite @vitejs/plugin-react vite-plugin-singlefile vitest jsdom @te
 ```
 Expected: both finish with `added N packages` and no `ERESOLVE` errors. If `vite-plugin-singlefile` complains about a Vite peer-version mismatch, install the Vite major version that it lists as a peer dependency.
 
-- [ ] **Step 3: Append to the existing `.gitignore`** (it already ignores `/graft/`. Keep that line.)
+- [x] **Step 3: Append to the existing `.gitignore`** (it already ignores `/graft/`. Keep that line.)
 
 ```bash
 cat >> .gitignore <<'EOF'
@@ -163,7 +163,7 @@ dist-offline/
 EOF
 ```
 
-- [ ] **Step 4: Write `vite.config.js`**
+- [x] **Step 4: Write `vite.config.js`**
 
 ```js
 import { defineConfig } from 'vite'
@@ -189,7 +189,7 @@ export default defineConfig(({ mode }) => {
 })
 ```
 
-- [ ] **Step 5: Write `index.html`**
+- [x] **Step 5: Write `index.html`**
 
 ```html
 <!doctype html>
@@ -206,7 +206,7 @@ export default defineConfig(({ mode }) => {
 </html>
 ```
 
-- [ ] **Step 6: Write `src/main.jsx`** (CSS files are created in Task 3. Leave those imports commented out until then.)
+- [x] **Step 6: Write `src/main.jsx`** (CSS files are created in Task 3. Leave those imports commented out until then.)
 
 ```jsx
 import { StrictMode } from 'react'
@@ -223,7 +223,7 @@ createRoot(document.getElementById('root')).render(
 )
 ```
 
-- [ ] **Step 7: Write `src/App.jsx`**
+- [x] **Step 7: Write `src/App.jsx`**
 
 ```jsx
 import { Routes, Route } from 'react-router'
@@ -241,7 +241,7 @@ export default function App() {
 }
 ```
 
-- [ ] **Step 8: Write the stub `src/VenuePage.jsx`** (replaced in Task 9)
+- [x] **Step 8: Write the stub `src/VenuePage.jsx`** (replaced in Task 9)
 
 ```jsx
 export default function VenuePage() {
@@ -249,7 +249,7 @@ export default function VenuePage() {
 }
 ```
 
-- [ ] **Step 9: Write `src/admin/AdminPage.jsx`**
+- [x] **Step 9: Write `src/admin/AdminPage.jsx`**
 
 ```jsx
 import { Link } from 'react-router'
@@ -266,7 +266,7 @@ export default function AdminPage() {
 }
 ```
 
-- [ ] **Step 10: Verify dev server and both builds**
+- [x] **Step 10: Verify dev server and both builds**
 
 Run: `npm run dev`. Open `http://localhost:5173/#/` and confirm it shows "Overall Medal Standings". Then open `/#/admin` and confirm it shows "Operator console". Stop the server.
 
@@ -278,7 +278,7 @@ ls dist-offline && grep -c 'assets/' dist-offline/index.html
 ```
 Expected: `index.html` and `0`.
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
 ```bash
 git add package.json package-lock.json vite.config.js index.html .gitignore src/main.jsx src/App.jsx src/VenuePage.jsx src/admin/AdminPage.jsx
