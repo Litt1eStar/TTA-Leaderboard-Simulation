@@ -292,7 +292,7 @@ git commit -m "chore: scaffold Vite + React with hosted and offline builds and h
 **Files:**
 - Create: `tests/setup.js`, `tests/rank.test.js`, `src/lib/rank.js`
 
-- [ ] **Step 1: Write `tests/setup.js`**
+- [x] **Step 1: Write `tests/setup.js`**
 
 ```js
 import '@testing-library/jest-dom/vitest'
@@ -302,7 +302,7 @@ import { cleanup } from '@testing-library/react'
 afterEach(cleanup)
 ```
 
-- [ ] **Step 2: Write the failing tests in `tests/rank.test.js`**
+- [x] **Step 2: Write the failing tests in `tests/rank.test.js`**
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -358,12 +358,12 @@ describe('rank', () => {
 })
 ```
 
-- [ ] **Step 3: Run to verify failure**
+- [x] **Step 3: Run to verify failure**
 
 Run: `npx vitest run tests/rank.test.js`
 Expected: FAIL — `Failed to resolve import "../src/lib/rank.js"`.
 
-- [ ] **Step 4: Implement `src/lib/rank.js`**
+- [x] **Step 4: Implement `src/lib/rank.js`**
 
 ```js
 // Hidden weighted points: used only for ordering, never displayed.
@@ -392,12 +392,12 @@ export function rank(rows) {
 }
 ```
 
-- [ ] **Step 5: Run to verify pass**
+- [x] **Step 5: Run to verify pass**
 
 Run: `npx vitest run tests/rank.test.js`
 Expected: PASS, 8 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add tests/setup.js tests/rank.test.js src/lib/rank.js
