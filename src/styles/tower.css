@@ -90,7 +90,7 @@
 
 /* ----- Leader (P1) ----- */
 .row.p1 {
-  flex: 1.75 1 0; z-index: 3;
+  flex: 2 1 0; z-index: 3;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .09), transparent 46%),
     linear-gradient(90deg, color-mix(in srgb, var(--amber) 30%, transparent), transparent 52%),
@@ -100,38 +100,31 @@
 }
 .row.p1:not(.enter) { animation: p1pulse 3.2s ease-in-out infinite; }
 .row.p1::before {
-  width: 7px; box-shadow: 0 0 12px 1px color-mix(in srgb, var(--amber) 75%, transparent);
+  width: 8px; box-shadow: 0 0 14px 2px color-mix(in srgb, var(--amber) 75%, transparent);
   background: linear-gradient(180deg, #fff2c8, var(--amber));
 }
-.row.p1 .who .code { font-size: clamp(17px, 3.2vh, 40px); color: #fff; letter-spacing: .02em; }
-.row.p1 .who .name { color: #e9d9b0; }
-.row.p1 .pos .box b { font-size: clamp(19px, 3.5vh, 44px); }
-.row.p1 .mc .cnt { font-size: clamp(15px, 2.6vh, 34px); }
-.row.p1 .emblem.chip {
-  width: clamp(48px, 7.6vh, 94px); height: clamp(48px, 7.6vh, 94px);
-  box-shadow: 0 0 0 2.5px #fff, 0 0 0 4.5px var(--uc, #c3ccdb), 0 6px 16px -6px rgba(0, 0, 0, .75);
+.row.p1 .who .code { font-size: clamp(20px, 3.8vh, 46px); color: #fff; letter-spacing: .02em; }
+.row.p1 .who .name { font-size: clamp(11px, 1.55vh, 18px); color: #e9d9b0; font-weight: 700; }
+.row.p1 .pos .box {
+  min-width: clamp(38px, 4.1vw, 64px);
+  height: clamp(34px, 5.2vh, 60px);
+  background: linear-gradient(160deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3));
+  border-left-color: #fff2c8;
 }
+.row.p1 .pos .box b { font-size: clamp(22px, 4.2vh, 50px); color: #241700; }
+.row.p1 .emblem.chip {
+  width: clamp(56px, 9vh, 110px); height: clamp(56px, 9vh, 110px);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5.5px var(--uc, #c3ccdb), 0 8px 20px -6px rgba(0, 0, 0, .8);
+}
+.row.p1 .mc .medal { height: clamp(40px, 7vh, 80px); }
+.row.p1 .mc .cnt { font-size: clamp(20px, 3.6vh, 46px); }
+.row.p1 .mc .cnt .x { font-size: .62em; }
 .p1tag {
-  display: inline-flex; align-items: center; gap: 5px; margin-left: 2px; padding: 2px 8px;
-  font-family: var(--display); font-weight: 700; font-size: clamp(8px, 1.1vh, 12px); letter-spacing: .16em;
+  display: inline-flex; align-items: center; gap: 6px; margin-left: 3px; padding: 3px 10px;
+  font-family: var(--display); font-weight: 700; font-size: clamp(9px, 1.3vh, 14px); letter-spacing: .16em;
   text-transform: uppercase; color: #241700; background: linear-gradient(160deg, var(--gold-1), var(--gold-2));
   clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
 }
-
-/* ---------- Position ---------- */
-.pos { display: flex; align-items: center; gap: clamp(6px, .7vw, 12px); }
-.pos .box {
-  position: relative; display: grid; place-items: center;
-  min-width: clamp(32px, 3.4vw, 54px); height: clamp(28px, 4.2vh, 50px);
-  background: rgba(255, 255, 255, .05); border-left: 3px solid var(--uc, #38507a);
-  transform: skewX(-13deg);
-}
-.pos .box b {
-  transform: skewX(13deg); font-family: var(--display); font-weight: 900;
-  font-variant-numeric: tabular-nums; font-size: clamp(17px, 3vh, 38px); line-height: 1; color: var(--ink);
-}
-.row.p1 .pos .box { background: linear-gradient(160deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3)); border-left-color: #fff2c8; }
-.row.p1 .pos .box b { color: #241700; }
 .mv {
   display: flex; align-items: center; gap: 1px; font-family: var(--display); font-weight: 700;
   font-variant-numeric: tabular-nums; font-size: clamp(9px, 1.35vh, 15px); line-height: 1; min-width: 1.4em;
