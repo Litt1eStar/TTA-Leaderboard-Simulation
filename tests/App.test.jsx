@@ -16,10 +16,11 @@ describe('routes', () => {
     expect(rows[9].dataset.code).toBe('RMUTP')
   })
 
-  it('venue view shows no operator controls', () => {
-    at('/')
+  it('venue view shows no operator controls and renders footer', () => {
+    const { container } = at('/')
     expect(screen.queryByRole('button')).toBeNull()
     expect(screen.queryByRole('textbox')).toBeNull()
+    expect(container.querySelector('footer.footer')).toBeInTheDocument()
   })
 
   it('admin route renders the console', () => {

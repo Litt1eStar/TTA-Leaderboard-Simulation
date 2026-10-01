@@ -1,6 +1,7 @@
 import Header from './components/Header.jsx'
 import ColumnHead from './components/ColumnHead.jsx'
 import Tower from './components/Tower.jsx'
+import Footer from './components/Footer.jsx'
 import { MedalDefs } from './components/MedalIcon.jsx'
 import useKeyboardShortcuts from './hooks/useKeyboardShortcuts.js'
 import { rank } from './lib/rank.js'
@@ -19,6 +20,7 @@ export default function VenuePage() {
         <Header title={SAMPLE.title} />
         <ColumnHead />
         <Tower rows={ROWS} />
+        <Footer />
       </div>
     </div>
   )
