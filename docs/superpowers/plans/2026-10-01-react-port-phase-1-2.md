@@ -675,7 +675,7 @@ git commit -m "feat: add university registry, logos and sample counts"
 **Files:**
 - Create: `src/components/MedalIcon.jsx`, `src/components/LogoChip.jsx`
 
-- [ ] **Step 1: Write `src/components/MedalIcon.jsx`** (SVG from prototype lines 282–287 and 419–423)
+- [x] **Step 1: Write `src/components/MedalIcon.jsx`** (SVG from prototype lines 282–287 and 419–423)
 
 ```jsx
 const STAR =
@@ -719,7 +719,7 @@ export default function MedalIcon({ kind }) {
 }
 ```
 
-- [ ] **Step 2: Write `src/components/LogoChip.jsx`**
+- [x] **Step 2: Write `src/components/LogoChip.jsx`**
 
 ```jsx
 // Full seal on a white circular chip; the image is contained, never cropped.
@@ -732,7 +732,7 @@ export default function LogoChip({ src, alt }) {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/components/MedalIcon.jsx src/components/LogoChip.jsx
