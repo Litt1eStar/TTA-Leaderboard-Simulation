@@ -1317,30 +1317,30 @@ git commit -m "feat: port static venue timing tower from prototype V17"
 **Files:**
 - Create (gitignored): `.compare/leaderboard.html`, `.compare/logo*.png`
 
-- [ ] **Step 1: Make the prototype render with logos**
+- [x] **Step 1: Make the prototype render with logos**
 
 ```bash
 mkdir -p .compare && cp reference/leaderboard.html .compare/ && cp logos/*.png .compare/
 ```
 
-- [ ] **Step 2: Serve both**
+- [x] **Step 2: Serve both**
 
 Terminal A: `npm run dev` (port 5173). Terminal B: `npx vite .compare --port 5174`.
 
-- [ ] **Step 3: Compare at three viewports**
+- [x] **Step 3: Compare at three viewports**
 
 Use Chrome DevTools device mode (or the Playwright MCP `browser_resize` and `browser_take_screenshot` tools) to open `http://localhost:5174/leaderboard.html` and `http://localhost:5173/#/` at **1920×1080**, **3840×2160** and **390×844**. Save screenshots as `.compare/{proto,react}-{1080p,4k,phone}.png`.
 
 Acceptance checklist (every item must match the prototype):
-- [ ] Header: logo left, eyebrow/title/sub centered, LIVE pill + clock right, gradient rule under header.
-- [ ] Expected difference: the prototype has the "PTS · Gold ×3…" legend and the React app does not (open question 1).
-- [ ] Expected difference: the prototype has a controls footer and the venue view does not. The controls belong on the admin route.
-- [ ] Row heights fill the screen, and the leader row is about 1.75× taller.
-- [ ] Skewed position blocks, team-color bars, chamfered bottom-right corners.
-- [ ] Logos fully visible inside white chips, with nothing clipped.
-- [ ] Thai names render in Noto Sans Thai, not as tofu boxes or a fallback serif font.
-- [ ] Phone: header stacks, column head hidden, medals wrap under the name.
-- [ ] Turn on DevTools → Rendering → "Emulate prefers-reduced-motion: reduce" and confirm the sheen and pulse stop.
+- [x] Header: logo left, eyebrow/title/sub centered, LIVE pill + clock right, gradient rule under header.
+- [x] Expected difference: the prototype has the "PTS · Gold ×3…" legend and the React app does not (open question 1).
+- [x] Expected difference: the prototype has a controls footer and the venue view does not. The controls belong on the admin route.
+- [x] Row heights fill the screen, and the leader row is about 1.75× taller.
+- [x] Skewed position blocks, team-color bars, chamfered bottom-right corners.
+- [x] Logos fully visible inside white chips, with nothing clipped.
+- [x] Thai names render in Noto Sans Thai, not as tofu boxes or a fallback serif font.
+- [x] Phone: header stacks, column head hidden, medals wrap under the name.
+- [x] Turn on DevTools → Rendering → "Emulate prefers-reduced-motion: reduce" and confirm the sheen and pulse stop.
 
 If anything differs, fix `tower.css` and repeat. Commit fixes as `fix: match prototype <detail>`.
 
@@ -1348,26 +1348,26 @@ If anything differs, fix `tower.css` and repeat. Commit fixes as `fix: match pro
 
 ### Task 11: Offline bundle smoke test
 
-- [ ] **Step 1: Build**
+- [x] **Step 1: Build**
 
 Run: `npm run build:offline`
 
-- [ ] **Step 2: Open from disk**
+- [x] **Step 2: Open from disk**
 
 In Windows Explorer, double-click `dist-offline/index.html`. The URL is `file:///…/index.html#/`. Expected: the same view as the dev server, with logos and fonts present. Change the hash to `#/admin` and confirm the console placeholder appears.
 
-- [ ] **Step 3: Confirm zero network**
+- [x] **Step 3: Confirm zero network**
 
 With DevTools → Network → "Offline" checked, reload. Expected: the page renders fully, and the Network tab shows no failed requests.
 
-- [ ] **Step 4: Check size**
+- [x] **Step 4: Check size**
 
 ```bash
 ls -la dist-offline/index.html
 ```
 Expected: about 3–6 MB, mostly inlined logos and fonts. If it is over 15 MB, check that only the needed `@fontsource` weights are imported.
 
-- [ ] **Step 5: Hosted build check**
+- [x] **Step 5: Hosted build check**
 
 Run: `npm run build && npx vite preview`, then open the printed URL at `#/` and `#/admin`. Expected: both routes render.
 
@@ -1375,7 +1375,7 @@ Run: `npm run build && npx vite preview`, then open the printed URL at `#/` and 
 
 ### Task 12: Checkpoint — stop and confirm with the user
 
-- [ ] **Step 1: Run full verification**
+- [x] **Step 1: Run full verification**
 
 ```bash
 npm test && npm run build && npm run build:offline
