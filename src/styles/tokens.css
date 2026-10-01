@@ -1,0 +1,54 @@
+:root {
+  color-scheme: dark;
+  --stage-1: #0a1020;
+  --stage-2: #05070f;
+  --panel-1: #141d33;
+  --panel-2: #0d1526;
+  --line: rgba(255, 255, 255, .08);
+  --line-strong: rgba(255, 255, 255, .15);
+  --ink: #eef3fb;
+  --ink-dim: #9aa6c2;
+  --ink-faint: #68738f;
+  /* CI colors — the only accent colors allowed */
+  --blue: #2a9ff7;
+  --orange: #ff8d20;
+  --orange-deep: #ff5f1c;
+  --amber: #ffc525;
+  --gold-1: #ffe49a; --gold-2: #ffc525; --gold-3: #dc8e12;
+  --silver-1: #eef3fa; --silver-2: #c7d1dd; --silver-3: #7f8da0;
+  --bronze-1: #f4b483; --bronze-2: #d07b36; --bronze-3: #8f4e1c;
+  --up: #33d17a;
+  --down: #ff7a2e;
+  --display: 'Titillium Web', system-ui, sans-serif;
+  --body: 'Titillium Web', 'Noto Sans Thai', system-ui, sans-serif;
+  --chamfer: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 640px at 82% -10%, rgba(42, 159, 247, .16), transparent 60%),
+    radial-gradient(900px 560px at 4% 110%, rgba(255, 95, 28, .13), transparent 60%),
+    linear-gradient(165deg, var(--stage-1), var(--stage-2));
+  background-attachment: fixed;
+}
+
+/* faint telemetry grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .5;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .018) 0 1px, transparent 1px 46px);
+}
+
+[hidden] { display: none !important; }
+
+/* P key: present mode (hide cursor on the venue screen) */
+body.present { cursor: none; }

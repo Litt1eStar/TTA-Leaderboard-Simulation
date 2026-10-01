@@ -412,7 +412,7 @@ git commit -m "feat: add pure ranking with weighted points and tiebreaks"
 - Create: `src/styles/tokens.css`, `src/styles/animations.css`, `src/styles/tower.css` (empty for now, filled in Task 9)
 - Modify: `src/main.jsx`
 
-- [ ] **Step 1: Write `src/styles/tokens.css`** (ported from prototype lines 7–47; only the CI palette is used: #FF5F1C, #FF8D20, #FFC525, #2A9FF7)
+- [x] **Step 1: Write `src/styles/tokens.css`** (ported from prototype lines 7–47; only the CI palette is used: #FF5F1C, #FF8D20, #FFC525, #2A9FF7)
 
 ```css
 :root {
@@ -471,7 +471,7 @@ body::before {
 body.present { cursor: none; }
 ```
 
-- [ ] **Step 2: Write `src/styles/animations.css`** (keyframes from the prototype; the entrance keyframes are added in phase 4)
+- [x] **Step 2: Write `src/styles/animations.css`** (keyframes from the prototype; the entrance keyframes are added in phase 4)
 
 ```css
 @keyframes pip {
@@ -500,13 +500,13 @@ body.present { cursor: none; }
 }
 ```
 
-- [ ] **Step 3: Create an empty `src/styles/tower.css`**
+- [x] **Step 3: Create an empty `src/styles/tower.css`**
 
 ```css
 /* Venue timing-tower styles — filled in Task 9 */
 ```
 
-- [ ] **Step 4: Add the font and CSS imports at the top of `src/main.jsx`**
+- [x] **Step 4: Add the font and CSS imports at the top of `src/main.jsx`**
 
 ```jsx
 import '@fontsource/titillium-web/400.css'
@@ -522,11 +522,11 @@ import './styles/tower.css'
 ```
 If a weight file is missing, run `ls node_modules/@fontsource/titillium-web` and use the names that exist.
 
-- [ ] **Step 5: Verify**
+- [x] **Step 5: Verify**
 
 Run: `npm run dev`, then open `/#/`. Expected: a dark navy gradient background with faint horizontal grid lines, and the heading in Titillium Web. In DevTools → Network → Font, `titillium-web-latin-*.woff2` is served from localhost, not fonts.googleapis.com.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/styles src/main.jsx
