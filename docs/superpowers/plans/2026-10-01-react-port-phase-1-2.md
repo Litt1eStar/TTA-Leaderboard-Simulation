@@ -984,7 +984,7 @@ git commit -m "feat: add header with live pill and clock, column head and tower"
 **Files:**
 - Create: `src/hooks/useKeyboardShortcuts.js`
 
-- [ ] **Step 1: Write `src/hooks/useKeyboardShortcuts.js`**
+- [x] **Step 1: Write `src/hooks/useKeyboardShortcuts.js`**
 
 ```js
 import { useEffect } from 'react'
@@ -1013,7 +1013,7 @@ export default function useKeyboardShortcuts() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/hooks/useKeyboardShortcuts.js
