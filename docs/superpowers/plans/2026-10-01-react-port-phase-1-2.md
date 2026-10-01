@@ -1028,7 +1028,7 @@ git commit -m "feat: add P present and F fullscreen shortcuts"
 - Create: `tests/App.test.jsx`
 - Modify: `src/VenuePage.jsx` (replace stub), `src/styles/tower.css` (fill)
 
-- [ ] **Step 1: Write the failing tests in `tests/App.test.jsx`**
+- [x] **Step 1: Write the failing tests in `tests/App.test.jsx`**
 
 ```jsx
 import { describe, it, expect } from 'vitest'
@@ -1062,12 +1062,12 @@ describe('routes', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npx vitest run tests/App.test.jsx`
 Expected: FAIL — the first test fails with `expected [] to have a length of 10` (the stub has no rows).
 
-- [ ] **Step 3: Replace `src/VenuePage.jsx`**
+- [x] **Step 3: Replace `src/VenuePage.jsx`**
 
 ```jsx
 import Header from './components/Header.jsx'
@@ -1097,12 +1097,12 @@ export default function VenuePage() {
 }
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `npm test`
 Expected: PASS — all 4 test files (8 + 5 + 7 + 3 = 23 tests).
 
-- [ ] **Step 5: Fill `src/styles/tower.css`** (ported from prototype lines 48–220 and 267–278. Changes: `body` overflow/height moved to `.venue`; the `.pts` / `.gap` / `.scoring` / controls / toast / modal rules are dropped, and the controls, toast and modal rules return in phase 6.)
+- [x] **Step 5: Fill `src/styles/tower.css`** (ported from prototype lines 48–220 and 267–278. Changes: `body` overflow/height moved to `.venue`; the `.pts` / `.gap` / `.scoring` / controls / toast / modal rules are dropped, and the controls, toast and modal rules return in phase 6.)
 
 ```css
 /* ---------- Stage ---------- */
@@ -1299,11 +1299,11 @@ Expected: PASS — all 4 test files (8 + 5 + 7 + 3 = 23 tests).
 }
 ```
 
-- [ ] **Step 6: Visual check in dev**
+- [x] **Step 6: Visual check in dev**
 
 Run: `npm run dev`, then open `/#/` at 1920×1080. Expected: 10 chamfered rows, with KMUTT as a taller gold-glow leader row showing "★ Leader". Each row has a team-color bar on the left, logos on white circles, and three medal icons with ×counts. A sheen sweeps across the rows in turn, and the LIVE pill shows grey "Standby". Press `F` to toggle fullscreen and `P` to hide the cursor.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/VenuePage.jsx src/styles/tower.css tests/App.test.jsx
