@@ -540,7 +540,7 @@ git commit -m "feat: add CI design tokens, self-hosted fonts, base keyframes"
 **Files:**
 - Create: `src/assets/logo.png`, `src/assets/logos/logo_*.png` (10 files), `src/lib/registry.js`, `src/lib/sample.js`, `tests/registry.test.js`
 
-- [ ] **Step 1: Copy assets** (leave the originals in `logos/` until the port is signed off)
+- [x] **Step 1: Copy assets** (leave the originals in `logos/` until the port is signed off)
 
 ```bash
 mkdir -p src/assets/logos
@@ -550,7 +550,7 @@ ls src/assets/logos | wc -l
 ```
 Expected: `10`
 
-- [ ] **Step 2: Write the failing tests in `tests/registry.test.js`**
+- [x] **Step 2: Write the failing tests in `tests/registry.test.js`**
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -594,12 +594,12 @@ describe('sample', () => {
 })
 ```
 
-- [ ] **Step 3: Run to verify failure**
+- [x] **Step 3: Run to verify failure**
 
 Run: `npx vitest run tests/registry.test.js`
 Expected: FAIL — cannot resolve `../src/lib/registry.js`.
 
-- [ ] **Step 4: Implement `src/lib/registry.js`** (values from the prototype's `SAMPLE`, lines 357–366)
+- [x] **Step 4: Implement `src/lib/registry.js`** (values from the prototype's `SAMPLE`, lines 357–366)
 
 ```js
 import KMUTT from '../assets/logos/logo_KMUTT.png'
@@ -635,7 +635,7 @@ export function withRegistry(countRows) {
 }
 ```
 
-- [ ] **Step 5: Implement `src/lib/sample.js`**
+- [x] **Step 5: Implement `src/lib/sample.js`**
 
 ```js
 // Demo counts (prototype V17). Identity lives in registry.js.
@@ -656,12 +656,12 @@ export const SAMPLE = {
 }
 ```
 
-- [ ] **Step 6: Run to verify pass**
+- [x] **Step 6: Run to verify pass**
 
 Run: `npm test`
 Expected: PASS — `rank.test.js` (8) and `registry.test.js` (5).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/assets src/lib/registry.js src/lib/sample.js tests/registry.test.js
