@@ -746,7 +746,7 @@ git commit -m "feat: add SVG medal icon and logo chip components"
 **Files:**
 - Create: `tests/Row.test.jsx`, `src/components/Row.jsx`
 
-- [ ] **Step 1: Write the failing tests in `tests/Row.test.jsx`**
+- [x] **Step 1: Write the failing tests in `tests/Row.test.jsx`**
 
 ```jsx
 import { describe, it, expect } from 'vitest'
@@ -806,12 +806,12 @@ describe('Row', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npx vitest run tests/Row.test.jsx`
 Expected: FAIL — cannot resolve `../src/components/Row.jsx`.
 
-- [ ] **Step 3: Implement `src/components/Row.jsx`**
+- [x] **Step 3: Implement `src/components/Row.jsx`**
 
 ```jsx
 import LogoChip from './LogoChip.jsx'
@@ -867,12 +867,12 @@ export default function Row({ row, move = 0 }) {
 }
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `npx vitest run tests/Row.test.jsx`
 Expected: PASS, 7 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/components/Row.jsx tests/Row.test.jsx
