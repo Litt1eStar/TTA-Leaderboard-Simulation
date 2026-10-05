@@ -1,5 +1,6 @@
 import LogoChip from './LogoChip.jsx'
 import MedalIcon from './MedalIcon.jsx'
+import { useCountUp } from '../hooks/useCountUp.js'
 
 function Movement({ delta }) {
   if (delta > 0) return <span className="mv up"><span className="ar">▲</span>{delta}</span>
@@ -7,11 +8,17 @@ function Movement({ delta }) {
   return <span className="mv flat">–</span>
 }
 
-function MedalCount({ kind, label, count }) {
+function MedalCount({ kind, label, count, entering = false, delay = 0 }) {
+  const displayCount = useCountUp(count, {
+    duration: 550,
+    delay,
+    enabled: entering,
+  })
+
   return (
     <div className={count > 0 ? 'mc' : 'mc zero'} aria-label={`${label} ${count}`}>
       <MedalIcon kind={kind} />
-      <span className="cnt"><span className="x">×</span>{count}</span>
+      <span className="cnt"><span className="x">×</span>{displayCount}</span>
     </div>
   )
 }
@@ -25,6 +32,8 @@ export default function Row({ row, move = 0, entering = false }) {
   const style = { '--i': row.position - 1 }
   if (row.color) style['--uc'] = row.color
 
+  const countDelay = leader ? 1150 : (row.position - 1) * 85 + 180
+
   const className = [
     'row',
     leader && 'p1',
@@ -33,6 +42,7 @@ export default function Row({ row, move = 0, entering = false }) {
 
   return (
     <div className={className} style={style} data-code={row.code}>
+      {leader && entering && <span className="p1-shockwave" aria-hidden="true" />}
       <div className="pos">
         <span className="box"><b>{row.position}</b></span>
         <Movement delta={move} />
@@ -48,9 +58,9 @@ export default function Row({ row, move = 0, entering = false }) {
         </div>
       </div>
       <div className="medals">
-        <MedalCount kind="g" label="Gold" count={row.gold} />
-        <MedalCount kind="s" label="Silver" count={row.silver} />
-        <MedalCount kind="b" label="Bronze" count={row.bronze} />
+        <MedalCount kind="g" label="Gold" count={row.gold} entering={entering} delay={countDelay} />
+        <MedalCount kind="s" label="Silver" count={row.silver} entering={entering} delay={countDelay} />
+        <MedalCount kind="b" label="Bronze" count={row.bronze} entering={entering} delay={countDelay} />
       </div>
     </div>
   )

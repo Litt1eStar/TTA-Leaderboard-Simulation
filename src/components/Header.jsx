@@ -13,9 +13,9 @@ function Clock() {
   return <span className="clock">{pad(now.getHours())}:{pad(now.getMinutes())}:{pad(now.getSeconds())}</span>
 }
 
-export default function Header({ title, live = false }) {
+export default function Header({ title, live = false, entering = false }) {
   return (
-    <header className="topbar">
+    <header className={entering ? 'topbar enter' : 'topbar'}>
       <div className="brand">
         <img src={ttaLogo} alt="Thailand Teaching Academy Award 2027" />
       </div>

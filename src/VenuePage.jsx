@@ -51,10 +51,10 @@ export default function VenuePage() {
       <MedalDefs />
       {entering && <IntroFlare key={introKey} />}
       <div className="stage">
-        <Header title={SAMPLE.title} />
-        <ColumnHead />
+        <Header title={SAMPLE.title} entering={entering} />
+        <ColumnHead entering={entering} />
         <Tower key={introKey} rows={ROWS} entering={entering} />
-        <Footer />
+        <Footer entering={entering} />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
-export default function Footer() {
+export default function Footer({ entering = false }) {
   return (
-    <footer className="footer">
+    <footer className={entering ? 'footer enter' : 'footer'}>
       <div className="footer-left">
         <span className="footer-badge">TTA 2027</span>
         <span className="footer-note">13th Thailand Teaching Academy Award · Hosted by KMUTT</span>

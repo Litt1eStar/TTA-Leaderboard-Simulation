@@ -59,4 +59,15 @@ describe('Row', () => {
     rerender(<Row row={{ ...base, position: 1 }} entering={false} />)
     expect(container.firstChild).not.toHaveClass('enter')
   })
+
+  it('renders p1-shockwave for leader only when entering is true', () => {
+    const { container, rerender } = render(<Row row={{ ...base, position: 1 }} entering />)
+    expect(container.querySelector('.p1-shockwave')).toBeInTheDocument()
+
+    rerender(<Row row={{ ...base, position: 1 }} entering={false} />)
+    expect(container.querySelector('.p1-shockwave')).toBeNull()
+
+    rerender(<Row row={{ ...base, position: 2 }} entering />)
+    expect(container.querySelector('.p1-shockwave')).toBeNull()
+  })
 })
