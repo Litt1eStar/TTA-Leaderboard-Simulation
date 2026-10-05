@@ -10,9 +10,6 @@ const CHEAP = new Set(['transform', 'opacity'])
 // without a written reason next to them.
 const ALLOWED = {
   pip: ['box-shadow'],     // LIVE dot: Task 7
-  rowinBig: ['filter'],    // entrance blur: Task 6
-  rowinBigP1: ['filter'],  // leader entrance blur: Task 6
-  flare: ['left'],         // intro flare: Task 6
   flash: ['box-shadow'],   // reorder flash: one-shot, 0.9 s, rare. Revisit in phase 4.
 }
 

@@ -65,6 +65,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 - 2026-10-05 Task 2: WebP q90 for all 11 logos, no artifacts at 4K (side-by-side crop checked); images 1491 -> 380 KB, offline 2717 -> 1235 KB.
 - 2026-10-05 Task 3: verified in offline build via Chrome: titles Titillium Web, Thai names Noto Sans Thai 600/700 (700 file reports family 'Noto Sans Thai' without 'Bold', which is expected). All 4 size budgets PASS, offline 880 KB.
 - 2026-10-05 Task 5: steady layerizeMs 314 -> 2 (-99%), slowFrames 1 -> 0. Glow alpha .38 kept (soft gold inner edge, checked in 4K crop).
+- 2026-10-05 Task 6: entrance rasterMs 199 -> 9-11 (-95%), slowFrames 39 -> 5-7, fps 70 -> ~100. fps/slowFrames vary a lot run to run on a busy dev PC (one run fell to 64 fps steady with only 2 ms of render work); trust layerizeMs/rasterMs for comparisons. Entrance frames checked: flare sweep, stagger, leader slam all intact.
 
 ---
 
@@ -631,7 +632,7 @@ Removing `filter: blur()` from the two row-entrance keyframes cut the 4K entranc
 **Files:**
 - Modify: `src/styles/animations.css`, `tests/animation-perf.test.js`
 
-- [ ] **Step 1: Replace `@keyframes rowinBig` and `@keyframes rowinBigP1`** in `src/styles/animations.css` with:
+- [x] **Step 1: Replace `@keyframes rowinBig` and `@keyframes rowinBigP1`** in `src/styles/animations.css` with:
 
 ```css
 @keyframes rowinBig {
@@ -649,14 +650,14 @@ Removing `filter: blur()` from the two row-entrance keyframes cut the 4K entranc
 }
 ```
 
-- [ ] **Step 2: Promote entering rows to their own layers only while they animate.** In the `.row.enter { … }` rule, add:
+- [x] **Step 2: Promote entering rows to their own layers only while they animate.** In the `.row.enter { … }` rule, add:
 
 ```css
   will-change: transform, opacity;
 ```
 The `enter` class is removed after the intro, so the layers are released afterwards.
 
-- [ ] **Step 3: Move the flare to `transform`.** In the `.introflare::before { … }` rule, change `left: -50%;` to `left: 0;` and change `transform: skewX(-18deg);` to `transform: translateX(-131%) skewX(-18deg);`. Then replace `@keyframes flare` with:
+- [x] **Step 3: Move the flare to `transform`.** In the `.introflare::before { … }` rule, change `left: -50%;` to `left: 0;` and change `transform: skewX(-18deg);` to `transform: translateX(-131%) skewX(-18deg);`. Then replace `@keyframes flare` with:
 
 ```css
 /* translateX % is relative to the 42%-wide streak: -131% ≈ left -55vw, 321% ≈ left 135vw */
@@ -667,21 +668,21 @@ The `enter` class is removed after the intro, so the layers are released afterwa
 }
 ```
 
-- [ ] **Step 4: Remove `rowinBig`, `rowinBigP1` and `flare` from `ALLOWED`** in `tests/animation-perf.test.js`.
+- [x] **Step 4: Remove `rowinBig`, `rowinBigP1` and `flare` from `ALLOWED`** in `tests/animation-perf.test.js`.
 
-- [ ] **Step 5: Run tests**
+- [x] **Step 5: Run tests**
 
 Run: `npm test`
 Expected: PASS, 31 tests. The `IntroFlare` tests are unaffected because the class names are unchanged.
 
-- [ ] **Step 6: Measure and eyeball**
+- [x] **Step 6: Measure and eyeball**
 
 ```bash
 npm run build && npm run perf -- after-entrance
 ```
 Expected: the entrance `rasterMs` drops by at least 80% compared with the baseline and its `fps` roughly doubles. Then run `npm run dev`, open `/#/` at full screen, and press **R** a few times. The rows should still fly in staggered from the left, the leader should slam in last, and the flare should sweep left to right across the whole screen.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/styles/animations.css tests/animation-perf.test.js docs/superpowers/plans/2026-10-05-performance-optimization.md
