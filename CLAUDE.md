@@ -7,7 +7,7 @@ Venue big-screen **university medal table** for the 13th Thailand Teaching Acade
 Work only on the `dev` branch. Never commit to `main`, create other branches, merge, or push unless the user asks. Make one commit per plan task, stage explicit paths only, and run `npm test` before committing. The active plan is listed in `AGENTS.md`.
 
 ## Deployment
-Both: (a) hosted static site, and (b) offline bundle (`base: './'`, hash routing) that runs from a venue PC or USB stick.
+Both: (a) hosted static site, and (b) offline bundle (`base: './'`, hash routing) that runs from a venue PC or USB stick. Hosted = https://tta.leaderboard.cmm.works on the shared CMM droplet (deploys on push to `main`); offline = `npm run package:offline`. Runbook: `docs/deployment.md`.
 
 ## Routes
 - `/#/` venue display (no controls visible)
