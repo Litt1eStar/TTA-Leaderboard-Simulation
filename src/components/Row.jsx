@@ -33,6 +33,7 @@ export default function Row({ row, move = 0, entering = false }) {
 
   return (
     <div className={className} style={style} data-code={row.code}>
+      {leader && <span className="p1glow" aria-hidden="true" />}
       <div className="pos">
         <span className="box"><b>{row.position}</b></span>
         <Movement delta={move} />

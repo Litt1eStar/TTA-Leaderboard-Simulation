@@ -59,4 +59,11 @@ describe('Row', () => {
     rerender(<Row row={{ ...base, position: 1 }} entering={false} />)
     expect(container.firstChild).not.toHaveClass('enter')
   })
+
+  it('gives only the leader a glow layer', () => {
+    const { container, rerender } = render(<Row row={{ ...base, position: 1 }} />)
+    expect(container.querySelector('.p1glow')).toBeInTheDocument()
+    rerender(<Row row={{ ...base, position: 2 }} />)
+    expect(container.querySelector('.p1glow')).toBeNull()
+  })
 })

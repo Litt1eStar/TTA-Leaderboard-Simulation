@@ -64,6 +64,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 - 2026-10-05 baseline (Google Chrome headless, dev PC): steady {fps 136, slowFrames 1, layerizeMs 314, paintMs 1, rasterMs 1}; entrance {fps 70, slowFrames 39, layerizeMs 70, paintMs 18, rasterMs 199}. Size: offline 2717 KB, JS gzip 82 KB, images 1491 KB, 34 font files.
 - 2026-10-05 Task 2: WebP q90 for all 11 logos, no artifacts at 4K (side-by-side crop checked); images 1491 -> 380 KB, offline 2717 -> 1235 KB.
 - 2026-10-05 Task 3: verified in offline build via Chrome: titles Titillium Web, Thai names Noto Sans Thai 600/700 (700 file reports family 'Noto Sans Thai' without 'Bold', which is expected). All 4 size budgets PASS, offline 880 KB.
+- 2026-10-05 Task 5: steady layerizeMs 314 -> 2 (-99%), slowFrames 1 -> 0. Glow alpha .38 kept (soft gold inner edge, checked in 4K crop).
 
 ---
 
@@ -551,7 +552,7 @@ The old pulse animated `filter: drop-shadow` on the whole leader row, and `clip-
 **Files:**
 - Modify: `tests/Row.test.jsx`, `src/components/Row.jsx`, `src/styles/tower.css`, `src/styles/animations.css`, `tests/animation-perf.test.js`
 
-- [ ] **Step 1: Add failing tests to `tests/Row.test.jsx`** (inside the `describe('Row', …)` block)
+- [x] **Step 1: Add failing tests to `tests/Row.test.jsx`** (inside the `describe('Row', …)` block)
 
 ```jsx
   it('gives only the leader a glow layer', () => {
@@ -562,18 +563,18 @@ The old pulse animated `filter: drop-shadow` on the whole leader row, and `clip-
   })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npx vitest run tests/Row.test.jsx`
 Expected: FAIL in "gives only the leader a glow layer" (received `null`).
 
-- [ ] **Step 3: Render the glow layer in `src/components/Row.jsx`.** Make it the first child of the row `<div>`, immediately before `<div className="pos">`:
+- [x] **Step 3: Render the glow layer in `src/components/Row.jsx`.** Make it the first child of the row `<div>`, immediately before `<div className="pos">`:
 
 ```jsx
       {leader && <span className="p1glow" aria-hidden="true" />}
 ```
 
-- [ ] **Step 4: Update `src/styles/tower.css`**
+- [x] **Step 4: Update `src/styles/tower.css`**
 
 In the `.row.p1 { … }` rule, delete this line:
 ```css
@@ -591,7 +592,7 @@ Replace the line `.row.p1:not(.enter) { animation: p1pulse 3.2s ease-in-out infi
 ```
 `.row > .p1glow` must beat the existing `.row > * { position: relative; z-index: 2; }` rule. It does on specificity, so keep the selector exactly as written.
 
-- [ ] **Step 5: Replace the `p1pulse` keyframes in `src/styles/animations.css`** with:
+- [x] **Step 5: Replace the `p1pulse` keyframes in `src/styles/animations.css`** with:
 
 ```css
 @keyframes p1glow {
@@ -600,21 +601,21 @@ Replace the line `.row.p1:not(.enter) { animation: p1pulse 3.2s ease-in-out infi
 }
 ```
 
-- [ ] **Step 6: Remove the `p1pulse` line from `ALLOWED`** in `tests/animation-perf.test.js`.
+- [x] **Step 6: Remove the `p1pulse` line from `ALLOWED`** in `tests/animation-perf.test.js`.
 
-- [ ] **Step 7: Run tests**
+- [x] **Step 7: Run tests**
 
 Run: `npm test`
 Expected: PASS, 31 tests. If "has no stale allowlist entries" fails on `p1pulse`, you skipped Step 6.
 
-- [ ] **Step 8: Measure**
+- [x] **Step 8: Measure**
 
 ```bash
 npm run build && npm run perf -- after-glow
 ```
 Expected: the steady `layerizeMs` drops by at least 80% compared with the baseline in the Handoff notes. Open `.compare/perf-after-glow.png` and check that the leader row shows a soft gold inner glow. If it looks too strong, lower the `.38` alpha in `.row > .p1glow` (don't go below `.25`) and note it.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add src/components/Row.jsx src/styles/tower.css src/styles/animations.css tests/Row.test.jsx tests/animation-perf.test.js docs/superpowers/plans/2026-10-05-performance-optimization.md
