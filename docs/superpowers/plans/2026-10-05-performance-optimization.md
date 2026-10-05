@@ -67,6 +67,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 - 2026-10-05 Task 5: steady layerizeMs 314 -> 2 (-99%), slowFrames 1 -> 0. Glow alpha .38 kept (soft gold inner edge, checked in 4K crop).
 - 2026-10-05 Task 6: entrance rasterMs 199 -> 9-11 (-95%), slowFrames 39 -> 5-7, fps 70 -> ~100. fps/slowFrames vary a lot run to run on a busy dev PC (one run fell to 64 fps steady with only 2 ms of render work); trust layerizeMs/rasterMs for comparisons. Entrance frames checked: flare sweep, stagger, leader slam all intact.
 - 2026-10-05 Task 7: LIVE ripple frames checked at 0/400/900/1300 ms (ring scales out and fades). Allowlist now only 'flash'.
+- 2026-10-06 after: steady {fps 151, slowFrames 0, layerizeMs 2, paintMs 1, rasterMs 1}; entrance {fps 116, slowFrames 4, layerizeMs 7, paintMs 8, rasterMs 8}. 31 tests pass, all size budgets PASS, offline file loads from file:// with no failed requests or console errors. Waiting at Task 9 for user review.
 
 ---
 
@@ -741,27 +742,27 @@ git commit -m "perf: animate the LIVE ripple with transform instead of box-shado
 
 ### Task 8: Final verification
 
-- [ ] **Step 1: Full check**
+- [x] **Step 1: Full check**
 
 ```bash
 npm test && npm run build && npm run build:offline && npm run size && npm run perf -- after
 ```
 Expected: 31 tests pass, all four size budgets show PASS, and the trace prints.
 
-- [ ] **Step 2: Record the results.** Append one line to "Handoff notes" with the "after" rows, and fill in this table here:
+- [x] **Step 2: Record the results.** Append one line to "Handoff notes" with the "after" rows, and fill in this table here:
 
 | Metric | Before | After | Target |
 |---|---|---|---|
-| Offline bundle | | | ≤ 1,000 KB |
-| Images (hosted) | | | ≤ 450 KB |
-| Font files | | | ≤ 8 |
-| Steady `layerizeMs` / 5 s | | | ≥ 80% lower |
-| Entrance `rasterMs` / 2.5 s | | | ≥ 80% lower |
-| Entrance `fps` | | | higher |
+| Offline bundle | 2,717 KB | **880 KB** (−68%) | ≤ 1,000 KB ✅ |
+| Images (hosted) | 1,491 KB | **380 KB** (−75%) | ≤ 450 KB ✅ |
+| Font files | 34 | **7** | ≤ 8 ✅ |
+| Steady `layerizeMs` / 5 s | 314 | **2** (−99%) | ≥ 80% lower ✅ |
+| Entrance `rasterMs` / 2.5 s | 199 | **8** (−96%) | ≥ 80% lower ✅ |
+| Entrance `fps` (slow frames) | 70 (39) | **116 (4)** | higher ✅ |
 
-- [ ] **Step 3: Offline smoke test.** Double-click `dist-offline/index.html` and turn on DevTools → Network → "Offline". Reload. Expected: logos, Thai text and fonts all render, and the console shows no 404 errors.
+- [x] **Step 3: Offline smoke test.** Double-click `dist-offline/index.html` and turn on DevTools → Network → "Offline". Reload. Expected: logos, Thai text and fonts all render, and the console shows no 404 errors.
 
-- [ ] **Step 4: Commit the recorded results**
+- [x] **Step 4: Commit the recorded results**
 
 ```bash
 git add docs/superpowers/plans/2026-10-05-performance-optimization.md
