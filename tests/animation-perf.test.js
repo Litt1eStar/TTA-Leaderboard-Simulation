@@ -9,7 +9,6 @@ const CHEAP = new Set(['transform', 'opacity'])
 // Known offenders. Each optimization task removes its entry. Don't add entries
 // without a written reason next to them.
 const ALLOWED = {
-  pip: ['box-shadow'],     // LIVE dot: Task 7
   flash: ['box-shadow'],   // reorder flash: one-shot, 0.9 s, rare. Revisit in phase 4.
 }
 

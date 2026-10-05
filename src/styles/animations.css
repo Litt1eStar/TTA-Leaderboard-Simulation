@@ -1,7 +1,7 @@
 @keyframes pip {
-  0%   { box-shadow: 0 0 0 0 rgba(255, 197, 37, .55); }
-  70%  { box-shadow: 0 0 0 7px rgba(255, 197, 37, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 197, 37, 0); }
+  0%   { transform: scale(1); opacity: 1; }
+  70%  { transform: scale(2.75); opacity: 0; }
+  100% { transform: scale(2.75); opacity: 0; }
 }
 
 @keyframes sheen {

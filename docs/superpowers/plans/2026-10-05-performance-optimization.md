@@ -66,6 +66,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 - 2026-10-05 Task 3: verified in offline build via Chrome: titles Titillium Web, Thai names Noto Sans Thai 600/700 (700 file reports family 'Noto Sans Thai' without 'Bold', which is expected). All 4 size budgets PASS, offline 880 KB.
 - 2026-10-05 Task 5: steady layerizeMs 314 -> 2 (-99%), slowFrames 1 -> 0. Glow alpha .38 kept (soft gold inner edge, checked in 4K crop).
 - 2026-10-05 Task 6: entrance rasterMs 199 -> 9-11 (-95%), slowFrames 39 -> 5-7, fps 70 -> ~100. fps/slowFrames vary a lot run to run on a busy dev PC (one run fell to 64 fps steady with only 2 ms of render work); trust layerizeMs/rasterMs for comparisons. Entrance frames checked: flare sweep, stagger, leader slam all intact.
+- 2026-10-05 Task 7: LIVE ripple frames checked at 0/400/900/1300 ms (ring scales out and fades). Allowlist now only 'flash'.
 
 ---
 
@@ -696,7 +697,7 @@ git commit -m "perf: drop blur from row entrance and sweep the flare with transf
 **Files:**
 - Modify: `src/styles/tower.css` (`.live .dot` rules), `src/styles/animations.css` (`pip`), `tests/animation-perf.test.js`
 
-- [ ] **Step 1: Replace the three `.live` dot rules in `src/styles/tower.css`.** These are the `.live .dot { … }` rule and the two `.live.idle …` rules. Replace them with:
+- [x] **Step 1: Replace the three `.live` dot rules in `src/styles/tower.css`.** These are the `.live .dot { … }` rule and the two `.live.idle …` rules. Replace them with:
 
 ```css
 .live .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
@@ -710,7 +711,7 @@ git commit -m "perf: drop blur from row entrance and sweep the flare with transf
 .live.idle .dot::after { display: none; }
 ```
 
-- [ ] **Step 2: Replace `@keyframes pip`** in `src/styles/animations.css`. The old 7 px box-shadow ring around an 8 px dot is equivalent to scale 2.75.
+- [x] **Step 2: Replace `@keyframes pip`** in `src/styles/animations.css`. The old 7 px box-shadow ring around an 8 px dot is equivalent to scale 2.75.
 
 ```css
 @keyframes pip {
@@ -720,16 +721,16 @@ git commit -m "perf: drop blur from row entrance and sweep the flare with transf
 }
 ```
 
-- [ ] **Step 3: Remove `pip` from `ALLOWED`.** Only `flash` should remain.
+- [x] **Step 3: Remove `pip` from `ALLOWED`.** Only `flash` should remain.
 
-- [ ] **Step 4: Run tests**
+- [x] **Step 4: Run tests**
 
 Run: `npm test`
 Expected: PASS, 31 tests.
 
-- [ ] **Step 5: Eyeball the live state.** The app is always in Standby until phase 5, so check it by hand. Run `npm run dev` and open `/#/`. In DevTools Elements, select the `span.live` and delete the `idle` class. Expected: an amber dot with a ring that ripples outward and fades about every 1.8 s, as in the prototype.
+- [x] **Step 5: Eyeball the live state.** The app is always in Standby until phase 5, so check it by hand. Run `npm run dev` and open `/#/`. In DevTools Elements, select the `span.live` and delete the `idle` class. Expected: an amber dot with a ring that ripples outward and fades about every 1.8 s, as in the prototype.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/styles/tower.css src/styles/animations.css tests/animation-perf.test.js docs/superpowers/plans/2026-10-05-performance-optimization.md
