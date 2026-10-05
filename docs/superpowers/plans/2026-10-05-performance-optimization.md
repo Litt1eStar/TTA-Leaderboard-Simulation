@@ -454,7 +454,7 @@ The test uses a ratchet: the known offenders start on an allowlist, and Tasks 5â
 **Files:**
 - Create: `tests/animation-perf.test.js`
 
-- [ ] **Step 1: Write the test with an empty allowlist**
+- [x] **Step 1: Write the test with an empty allowlist**
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -506,7 +506,7 @@ describe('animation performance rules', () => {
 })
 ```
 
-- [ ] **Step 2: Run it to see the offenders**
+- [x] **Step 2: Run it to see the offenders**
 
 Run: `npx vitest run tests/animation-perf.test.js`
 Expected: FAIL in "keyframes animate only transform and opacity" with exactly:
@@ -515,7 +515,7 @@ pip: box-shadow, p1pulse: filter, rowinBig: filter, rowinBigP1: filter, flare: l
 ```
 If the list differs, someone has changed the CSS since this plan was written. Record the difference in the Handoff notes and allowlist what you actually see.
 
-- [ ] **Step 3: Allowlist the current offenders.** Replace `const ALLOWED = {}` with:
+- [x] **Step 3: Allowlist the current offenders.** Replace `const ALLOWED = {}` with:
 
 ```js
 const ALLOWED = {
@@ -528,12 +528,12 @@ const ALLOWED = {
 }
 ```
 
-- [ ] **Step 4: Run the full suite**
+- [x] **Step 4: Run the full suite**
 
 Run: `npm test`
 Expected: PASS, 6 files, 30 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add tests/animation-perf.test.js docs/superpowers/plans/2026-10-05-performance-optimization.md
