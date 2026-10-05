@@ -61,6 +61,7 @@ The baseline was measured in headless Chromium on the dev PC. Absolute numbers d
 Agents append dated one-line notes here about deviations, surprises and decisions.
 
 - 2026-10-05: Plan written from the measurements in the "Why" table. Nothing has been executed yet.
+- 2026-10-05 baseline (Google Chrome headless, dev PC): steady {fps 136, slowFrames 1, layerizeMs 314, paintMs 1, rasterMs 1}; entrance {fps 70, slowFrames 39, layerizeMs 70, paintMs 18, rasterMs 199}. Size: offline 2717 KB, JS gzip 82 KB, images 1491 KB, 34 font files.
 
 ---
 
@@ -92,7 +93,7 @@ tests/
 
 ### Task 0: Preflight
 
-- [ ] **Step 1: Confirm branch and a green baseline**
+- [x] **Step 1: Confirm branch and a green baseline**
 
 ```bash
 git checkout dev && git branch --show-current && npm test
@@ -107,13 +108,13 @@ Expected: `dev`, then `Test Files 5 passed`, `Tests 27 passed`.
 - Create: `scripts/check-size.mjs`, `scripts/perf-trace.mjs`
 - Modify: `package.json` (scripts, devDependency)
 
-- [ ] **Step 1: Install the trace driver** (it uses your installed Google Chrome and downloads no browser)
+- [x] **Step 1: Install the trace driver** (it uses your installed Google Chrome and downloads no browser)
 
 ```bash
 npm install -D playwright-core
 ```
 
-- [ ] **Step 2: Write `scripts/check-size.mjs`**
+- [x] **Step 2: Write `scripts/check-size.mjs`**
 
 ```js
 // Size budgets for both builds. Run after `npm run build && npm run build:offline`.
@@ -153,7 +154,7 @@ for (const [key, limit] of Object.entries(BUDGETS)) {
 process.exit(failed ? 1 : 0)
 ```
 
-- [ ] **Step 3: Write `scripts/perf-trace.mjs`**
+- [x] **Step 3: Write `scripts/perf-trace.mjs`**
 
 ```js
 // Render-cost trace of the venue view at 4K in headless Chrome.
@@ -217,7 +218,7 @@ server.httpServer.close()
 process.exit(0)
 ```
 
-- [ ] **Step 4: Add the scripts to `package.json`** (inside `"scripts"`, after `"test:watch"`)
+- [x] **Step 4: Add the scripts to `package.json`** (inside `"scripts"`, after `"test:watch"`)
 
 ```json
     "size": "node scripts/check-size.mjs",
@@ -226,7 +227,7 @@ process.exit(0)
 ```
 (`images` is used in Task 2.)
 
-- [ ] **Step 5: Run the size check. It must fail.**
+- [x] **Step 5: Run the size check. It must fail.**
 
 ```bash
 npm run build && npm run build:offline && npm run size
@@ -239,7 +240,7 @@ FAIL  hostedImages    1491 KB  (budget 450 KB)
 FAIL  fontFiles           34  (budget 8)
 ```
 
-- [ ] **Step 6: Record the render-cost baseline**
+- [x] **Step 6: Record the render-cost baseline**
 
 ```bash
 npm run perf -- before
@@ -248,7 +249,7 @@ Expected: a table with `steady (5 s)` and `entrance (2.5 s)` rows. The steady `l
 
 **Append both rows to "Handoff notes"** as `2026-MM-DD baseline: steady {…} entrance {…}`. Later tasks are compared against them. `.compare/perf-before.png` is now saved (gitignored).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add scripts/check-size.mjs scripts/perf-trace.mjs package.json package-lock.json docs/superpowers/plans/2026-10-05-performance-optimization.md
