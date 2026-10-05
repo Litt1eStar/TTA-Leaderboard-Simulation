@@ -1,0 +1,4 @@
+# Files used inside Linux containers and CI must keep LF line endings, even on Windows checkouts.
+Dockerfile text eol=lf
+nginx.conf text eol=lf
+*.yml text eol=lf
