@@ -62,6 +62,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 
 - 2026-10-05: Plan written from the measurements in the "Why" table. Nothing has been executed yet.
 - 2026-10-05 baseline (Google Chrome headless, dev PC): steady {fps 136, slowFrames 1, layerizeMs 314, paintMs 1, rasterMs 1}; entrance {fps 70, slowFrames 39, layerizeMs 70, paintMs 18, rasterMs 199}. Size: offline 2717 KB, JS gzip 82 KB, images 1491 KB, 34 font files.
+- 2026-10-05 Task 2: WebP q90 for all 11 logos, no artifacts at 4K (side-by-side crop checked); images 1491 -> 380 KB, offline 2717 -> 1235 KB.
 
 ---
 
@@ -267,13 +268,13 @@ git commit -m "chore: add size budget and 4K render-cost trace scripts"
 
 The originals in the top-level `logos/` folder remain the source of truth. Don't edit or delete them.
 
-- [ ] **Step 1: Install sharp**
+- [x] **Step 1: Install sharp**
 
 ```bash
 npm install -D sharp
 ```
 
-- [ ] **Step 2: Write `scripts/optimize-images.mjs`**
+- [x] **Step 2: Write `scripts/optimize-images.mjs`**
 
 ```js
 // Shrink the source logos (logos/*.png) into web-ready WebP under src/assets.
@@ -300,14 +301,14 @@ for (const job of jobs) {
 }
 ```
 
-- [ ] **Step 3: Generate the WebP files**
+- [x] **Step 3: Generate the WebP files**
 
 ```bash
 npm run images
 ```
 Expected: 11 lines. The KMITL/KMUTNB/KMUTT seals are about 60–70 KB at 256x256, the Rajamangala seals about 20–27 KB, and `logo.webp` about 27 KB. The total is roughly 380 KB.
 
-- [ ] **Step 4: Point the imports at the WebP files**
+- [x] **Step 4: Point the imports at the WebP files**
 
 In `src/lib/registry.js`, change the extension of all ten imports from `.png` to `.webp`, for example:
 ```js
@@ -318,33 +319,33 @@ In `src/components/Header.jsx`, change line 2 to:
 import ttaLogo from '../assets/logo.webp'
 ```
 
-- [ ] **Step 5: Remove the old PNG copies from `src/assets`**
+- [x] **Step 5: Remove the old PNG copies from `src/assets`**
 
 ```bash
 git rm src/assets/logo.png src/assets/logos/*.png
 ```
 
-- [ ] **Step 6: Stop the favicon 404.** In `index.html`, add this line inside `<head>` after the viewport meta:
+- [x] **Step 6: Stop the favicon 404.** In `index.html`, add this line inside `<head>` after the viewport meta:
 
 ```html
     <link rel="icon" href="data:," />
 ```
 
-- [ ] **Step 7: Run tests and the size check**
+- [x] **Step 7: Run tests and the size check**
 
 ```bash
 npm test && npm run build && npm run build:offline && npm run size
 ```
 Expected: all tests pass. `hostedImages` is now **PASS** at about 380 KB. `offlineHtml` drops to about 1,230 KB (still FAIL until Task 3), and `fontFiles` still fails.
 
-- [ ] **Step 8: Visual check at 4K**
+- [x] **Step 8: Visual check at 4K**
 
 ```bash
 npm run perf -- after-images
 ```
 Open `.compare/perf-before.png` and `.compare/perf-after-images.png` side by side at 100% zoom. Expected: every seal is sharp, with no blockiness, colour banding or dark halo around the transparent edges, and the leader chip (KMUTT) is crisp. If one seal shows artifacts, set `quality: 95` for that job only, re-run `npm run images`, and note it in the Handoff notes.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add scripts/optimize-images.mjs src/assets/logo.webp src/assets/logos src/lib/registry.js src/components/Header.jsx index.html package.json package-lock.json docs/superpowers/plans/2026-10-05-performance-optimization.md

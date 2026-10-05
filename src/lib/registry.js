@@ -1,13 +1,13 @@
-import KMUTT from '../assets/logos/logo_KMUTT.png'
-import KMUTNB from '../assets/logos/logo_KMUTNB.png'
-import KMITL from '../assets/logos/logo_KMITL.png'
-import RMUTL from '../assets/logos/logo_RMUTL.png'
-import RMUTT from '../assets/logos/logo_RMUTT.png'
-import RUTS from '../assets/logos/logo_RUTS.png'
-import RMUTS from '../assets/logos/logo_RMUTS.png'
-import RMUTI from '../assets/logos/logo_RMUTI.png'
-import RMUTK from '../assets/logos/logo_RMUTK.png'
-import RMUTP from '../assets/logos/logo_RMUTP.png'
+import KMUTT from '../assets/logos/logo_KMUTT.webp'
+import KMUTNB from '../assets/logos/logo_KMUTNB.webp'
+import KMITL from '../assets/logos/logo_KMITL.webp'
+import RMUTL from '../assets/logos/logo_RMUTL.webp'
+import RMUTT from '../assets/logos/logo_RMUTT.webp'
+import RUTS from '../assets/logos/logo_RUTS.webp'
+import RMUTS from '../assets/logos/logo_RMUTS.webp'
+import RMUTI from '../assets/logos/logo_RMUTI.webp'
+import RMUTK from '../assets/logos/logo_RMUTK.webp'
+import RMUTP from '../assets/logos/logo_RMUTP.webp'
 
 // Static identity of each university. CSVs only supply medal counts.
 export const REGISTRY = [

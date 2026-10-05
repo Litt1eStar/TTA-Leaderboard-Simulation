@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ttaLogo from '../assets/logo.png'
+import ttaLogo from '../assets/logo.webp'
 import LiveBadge from './LiveBadge.jsx'
 
 const pad = n => String(n).padStart(2, '0')
