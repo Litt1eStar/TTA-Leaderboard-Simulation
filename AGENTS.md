@@ -3,8 +3,15 @@
 This file is for any AI coding agent (Claude Code, Codex, Cursor, Copilot, Gemini, etc.) working in this repo.
 
 1. Read `CLAUDE.md` for the project brief, design rules and phases.
-2. Execute the active plan: `docs/superpowers/plans/2026-10-01-react-port-phase-1-2.md`. Resume at the first task with unticked boxes, and follow its "How to execute this plan" and "Git workflow" sections exactly.
+2. Execute the **active plan**. Resume at its first task with unticked boxes, and follow its "How to execute this plan" and "Git workflow" sections exactly.
 3. Stop at every checkpoint the plan defines and wait for the user.
+
+## Plans
+
+| Plan | Status |
+|---|---|
+| `docs/superpowers/plans/2026-10-05-performance-optimization.md` | **Active** |
+| `docs/superpowers/plans/2026-10-01-react-port-phase-1-2.md` | Done. Waiting for user sign-off at its checkpoint (Task 12) |
 
 ## Git workflow (summary)
 
