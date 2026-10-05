@@ -1,0 +1,14 @@
+# Copied to /opt/tta/ on the droplet by the deploy workflow.
+name: tta
+
+services:
+  tta-web:
+    image: ghcr.io/litt1estar/tta-leaderboard:latest
+    restart: unless-stopped
+    expose:
+      - "80"
+
+networks:
+  default:
+    name: cmm_default
+    external: true
