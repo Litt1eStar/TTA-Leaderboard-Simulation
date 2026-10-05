@@ -20,13 +20,19 @@ function MedalCount({ kind, label, count }) {
  * row:  ranked display row { position, code, thaiName?, logo?, color?, gold, silver, bronze }
  * move: places gained since the previous standings (+ up, - down, 0 none)
  */
-export default function Row({ row, move = 0 }) {
+export default function Row({ row, move = 0, entering = false }) {
   const leader = row.position === 1
   const style = { '--i': row.position - 1 }
   if (row.color) style['--uc'] = row.color
 
+  const className = [
+    'row',
+    leader && 'p1',
+    entering && 'enter',
+  ].filter(Boolean).join(' ')
+
   return (
-    <div className={leader ? 'row p1' : 'row'} style={style} data-code={row.code}>
+    <div className={className} style={style} data-code={row.code}>
       <div className="pos">
         <span className="box"><b>{row.position}</b></span>
         <Movement delta={move} />

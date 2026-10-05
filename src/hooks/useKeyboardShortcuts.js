@@ -14,6 +14,7 @@ export default function useKeyboardShortcuts() {
       const k = e.key.toLowerCase()
       if (k === 'p') document.body.classList.toggle('present')
       if (k === 'f') toggleFullscreen()
+      if (k === 'r') window.dispatchEvent(new CustomEvent('tta:replay-intro'))
     }
     document.addEventListener('keydown', onKey)
     return () => {

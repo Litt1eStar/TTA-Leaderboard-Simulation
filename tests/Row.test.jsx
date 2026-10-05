@@ -52,4 +52,11 @@ describe('Row', () => {
     const { container } = render(<Row row={{ ...base, logo: undefined, position: 2 }} />)
     expect(container.querySelector('.chip')).toBeNull()
   })
+
+  it('adds enter class when entering is true', () => {
+    const { container, rerender } = render(<Row row={{ ...base, position: 1 }} entering />)
+    expect(container.firstChild).toHaveClass('row', 'p1', 'enter')
+    rerender(<Row row={{ ...base, position: 1 }} entering={false} />)
+    expect(container.firstChild).not.toHaveClass('enter')
+  })
 })
