@@ -6,3 +6,4 @@ dist/
 dist-offline/
 .compare/
 *.local
+release/

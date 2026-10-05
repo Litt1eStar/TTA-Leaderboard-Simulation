@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "size": "node scripts/check-size.mjs",
     "perf": "node scripts/perf-trace.mjs",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "package:offline": "npm run build:offline && node scripts/package-offline.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",
@@ -23,6 +24,7 @@
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@vitejs/plugin-react": "^6.1.1",
+    "fflate": "^0.8.3",
     "jsdom": "^30.1.1",
     "playwright-core": "^1.63.0",
     "sharp": "^0.35.5",
