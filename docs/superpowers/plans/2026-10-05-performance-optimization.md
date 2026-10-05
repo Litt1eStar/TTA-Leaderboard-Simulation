@@ -63,6 +63,7 @@ Agents append dated one-line notes here about deviations, surprises and decision
 - 2026-10-05: Plan written from the measurements in the "Why" table. Nothing has been executed yet.
 - 2026-10-05 baseline (Google Chrome headless, dev PC): steady {fps 136, slowFrames 1, layerizeMs 314, paintMs 1, rasterMs 1}; entrance {fps 70, slowFrames 39, layerizeMs 70, paintMs 18, rasterMs 199}. Size: offline 2717 KB, JS gzip 82 KB, images 1491 KB, 34 font files.
 - 2026-10-05 Task 2: WebP q90 for all 11 logos, no artifacts at 4K (side-by-side crop checked); images 1491 -> 380 KB, offline 2717 -> 1235 KB.
+- 2026-10-05 Task 3: verified in offline build via Chrome: titles Titillium Web, Thai names Noto Sans Thai 600/700 (700 file reports family 'Noto Sans Thai' without 'Bold', which is expected). All 4 size budgets PASS, offline 880 KB.
 
 ---
 
@@ -362,7 +363,7 @@ Used weights: Titillium Web 400/600/700/900 (latin). Noto Sans Thai is only used
 - Create: `src/assets/fonts/` (7 `.woff2` files + 2 license files), `src/styles/fonts.css`
 - Modify: `src/main.jsx:1-7`, `package.json` (remove `@fontsource/*`)
 
-- [ ] **Step 1: Vendor the files** (before uninstalling the packages)
+- [x] **Step 1: Vendor the files** (before uninstalling the packages)
 
 ```bash
 mkdir -p src/assets/fonts
@@ -374,7 +375,7 @@ ls src/assets/fonts | wc -l
 ```
 Expected: `9`
 
-- [ ] **Step 2: Write `src/styles/fonts.css`**
+- [x] **Step 2: Write `src/styles/fonts.css`**
 
 ```css
 /* Self-hosted fonts: woff2 only, and only the weights and scripts the UI uses.
@@ -412,13 +413,13 @@ Expected: `9`
 }
 ```
 
-- [ ] **Step 3: Replace the font imports in `src/main.jsx`.** Delete the seven `@fontsource/...` import lines (lines 1–7) and put this line first:
+- [x] **Step 3: Replace the font imports in `src/main.jsx`.** Delete the seven `@fontsource/...` import lines (lines 1–7) and put this line first:
 
 ```jsx
 import './styles/fonts.css'
 ```
 
-- [ ] **Step 4: Uninstall the font packages**
+- [x] **Step 4: Uninstall the font packages**
 
 ```bash
 npm uninstall @fontsource/titillium-web @fontsource/noto-sans-thai
@@ -426,18 +427,18 @@ grep -rn "@fontsource" src index.html || echo "no references left"
 ```
 Expected: `no references left`
 
-- [ ] **Step 5: Tests and size check, which should now pass completely**
+- [x] **Step 5: Tests and size check, which should now pass completely**
 
 ```bash
 npm test && npm run build && npm run build:offline && npm run size
 ```
 Expected: all four lines **PASS**. `offlineHtml` is about 900 KB (down from 2,717 KB), and `fontFiles` is `7`.
 
-- [ ] **Step 6: Visual check of fonts**
+- [x] **Step 6: Visual check of fonts**
 
 Run `npm run dev` and open `/#/`. In DevTools, select a Thai name (`.who .name`), then go to Computed → scroll to the bottom → **Rendered Fonts**. Expected: `Noto Sans Thai`. Select the title and expect `Titillium Web`. Also open `dist-offline/index.html` from Explorer and confirm the fonts look identical with DevTools → Network → "Offline".
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/assets/fonts src/styles/fonts.css src/main.jsx package.json package-lock.json docs/superpowers/plans/2026-10-05-performance-optimization.md
