@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { REGISTRY, REGISTRY_BY_CODE, withRegistry } from '../src/lib/registry.js'
 import { SAMPLE } from '../src/lib/sample.js'
 
-const CODES = ['KMUTT', 'KMUTNB', 'KMITL', 'RMUTL', 'RMUTT', 'RUTS', 'RMUTS', 'RMUTI', 'RMUTK', 'RMUTP']
+const CODES = ['KMUTT', 'KMUTNB', 'KMITL', 'RMUTL', 'RMUTT', 'RMUTSV', 'RMUTSB', 'RMUTI', 'RMUTK', 'RMUTP']
 
 describe('registry', () => {
   it('contains exactly the 10 network universities', () => {
