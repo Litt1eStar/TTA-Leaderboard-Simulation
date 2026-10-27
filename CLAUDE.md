@@ -21,7 +21,7 @@ Columns: `University, ThaiName, Gold, Silver, Bronze` with an optional title lin
 Universities (3 King Mongkut's + 7 Rajamangala): KMUTT, KMUTNB, KMITL, RMUTL, RMUTT, RUTS, RMUTS, RMUTI, RMUTK, RMUTP. Team colors are in the prototype's `SAMPLE`.
 
 ## Ranking
-Hidden weighted points: Gold 3, Silver 2, Bronze 1. Tiebreak gold, silver, bronze, name. Points are NOT displayed (no PTS or GAP columns). Put this in a pure `rank.js` with Vitest tests.
+Hidden weighted points: Gold 3, Silver 2, Bronze 1. Tiebreak gold, silver, bronze, name. Total points are shown in a column after Bronze (customer feedback 2026-10-26); no GAP column. Put this in a pure `rank.js` with Vitest tests.
 
 ## Design rules (keep exactly)
 - CI colors: #FF5F1C, #FF8D20, #FFC525, #2A9FF7 only (no F1 red).

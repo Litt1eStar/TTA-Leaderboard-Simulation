@@ -33,10 +33,12 @@ describe('Row', () => {
     expect(screen.getByLabelText('Gold 12')).not.toHaveClass('zero')
   })
 
-  it('never renders points', () => {
-    const { container } = render(<Row row={{ ...base, position: 2 }} />)
-    // 12*3 + 0*2 + 6 = 42
-    expect(container.textContent).not.toMatch(/42|PTS/)
+  it('shows total points after the medals (gold 3, silver 2, bronze 1)', () => {
+    render(<Row row={{ ...base, silver: 1, position: 2 }} />)
+    // 12*3 + 1*2 + 6 = 44
+    const pts = screen.getByLabelText('Points 44')
+    expect(pts).toHaveClass('pts')
+    expect(pts).toHaveTextContent('44')
   })
 
   it('shows movement arrows', () => {

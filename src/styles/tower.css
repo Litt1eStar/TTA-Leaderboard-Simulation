@@ -56,13 +56,14 @@
 }
 
 /* ---------- Column header ---------- */
-:root { --grid: clamp(56px, 4.8vw, 82px) minmax(0, 1fr) clamp(230px, 32vw, 560px); }
+:root { --grid: clamp(56px, 4.8vw, 82px) minmax(0, 1fr) clamp(230px, 32vw, 560px) clamp(44px, 5vw, 110px); }
 .colhead {
   display: grid; grid-template-columns: var(--grid); align-items: center;
   gap: clamp(6px, 0.8vw, 14px); padding: 0 clamp(14px, 1.4vw, 24px) 0 clamp(18px, 1.6vw, 30px);
   font-weight: 700; text-transform: uppercase; letter-spacing: .16em;
   font-size: clamp(8px, 1.02vh, 11.5px); color: var(--ink-faint);
 }
+.colhead .c-pts { text-align: center; }
 .colhead .c-medals { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(4px, .7vw, 14px); text-align: center; }
 
 /* ---------- Tower ---------- */
@@ -113,7 +114,7 @@
   background: linear-gradient(180deg, #fff2c8, var(--amber));
 }
 .row.p1 .who .code { font-size: clamp(20px, 3.8vh, 46px); color: #fff; letter-spacing: .02em; }
-.row.p1 .who .name { font-size: clamp(11px, 1.55vh, 18px); color: #e9d9b0; font-weight: 700; }
+.row.p1 .who .name { font-size: clamp(13px, 2.5vh, 30px); color: #e9d9b0; font-weight: 700; }
 .row.p1 .pos .box {
   min-width: clamp(34px, 3.2vw, 52px);
   height: clamp(32px, 4.8vh, 56px);
@@ -129,6 +130,7 @@
 .row.p1 .mc .cnt { font-size: clamp(20px, 3.6vh, 46px); }
 .row.p1 .mc .cnt .x { font-size: .62em; }
 .p1tag {
+  align-self: flex-start; margin-top: 4px;
   display: inline-flex; align-items: center; gap: 6px; margin-left: 3px; padding: 3px 10px;
   font-family: var(--display); font-weight: 700; font-size: clamp(9px, 1.3vh, 14px); letter-spacing: .16em;
   text-transform: uppercase; color: #241700; background: linear-gradient(160deg, var(--gold-1), var(--gold-2));
@@ -166,15 +168,16 @@
 }
 .emblem.chip img { width: auto; height: auto; max-width: 72%; max-height: 80%; object-fit: contain; }
 .who .txt { min-width: 0; display: flex; flex-direction: column; gap: 0; }
-.who .codeline { display: flex; align-items: center; gap: clamp(6px, .7vw, 12px); min-width: 0; }
+.who .codeline { display: flex; align-items: baseline; gap: clamp(6px, .7vw, 12px); min-width: 0; }
 .who .code {
+  flex: none;
   font-family: var(--display); font-weight: 900; font-size: clamp(15px, 2.7vh, 32px);
   line-height: 1.02; letter-spacing: .01em; text-transform: uppercase; white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis;
 }
 .who .name {
   font-family: var(--body); font-weight: 600; color: var(--ink-dim);
-  font-size: clamp(9px, 1.25vh, 14px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  min-width: 0; font-size: clamp(11px, 1.9vh, 22px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
 /* ---------- Medals ---------- */
@@ -191,6 +194,13 @@
 .medal .ribbon path { fill: url(#rib); }
 .medal .rimlt { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 1; }
 .medal .star { fill: rgba(0, 0, 0, .32); }
+
+/* ---------- Total points ---------- */
+.pts {
+  text-align: center; font-family: var(--display); font-weight: 900; font-variant-numeric: tabular-nums;
+  font-size: clamp(18px, 3.2vh, 42px); line-height: 1; color: var(--amber);
+}
+.row.p1 .pts { font-size: clamp(24px, 4.4vh, 56px); color: #fff2c8; }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -230,10 +240,14 @@
   .status { align-items: center; }
   .colhead { display: none; }
   :root { --grid: 60px minmax(0, 1fr); }
-  .board { gap: 6px; }
+  .board { gap: 6px; flex: none; }
+  .row, .row.p1 { flex: none; }
   .row { grid-template-columns: 60px minmax(0, 1fr); grid-auto-rows: auto; padding: 11px 12px 11px 16px; gap: 9px 12px; }
   .medals { grid-column: 1 / -1; order: 5; justify-self: start; grid-template-columns: repeat(3, auto); gap: 20px; }
   .who .name { white-space: normal; }
+  .who .codeline { flex-wrap: wrap; }
+  .pts { grid-column: 1 / -1; order: 6; justify-self: start; }
+  .pts::after { content: ' pts'; font-size: .5em; color: var(--ink-faint); letter-spacing: .1em; text-transform: uppercase; }
   .footer { flex-direction: column; align-items: center; text-align: center; gap: 8px; padding-bottom: 8px; }
   .footer-left { flex-wrap: wrap; justify-content: center; }
 }

@@ -4,6 +4,7 @@ export default function ColumnHead() {
       <div>Pos</div>
       <div>University</div>
       <div className="c-medals"><div>Gold</div><div>Silver</div><div>Bronze</div></div>
+      <div className="c-pts">Pts</div>
     </div>
   )
 }
