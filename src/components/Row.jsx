@@ -1,5 +1,6 @@
 import LogoChip from './LogoChip.jsx'
 import MedalIcon from './MedalIcon.jsx'
+import { points } from '../lib/rank.js'
 
 function Movement({ delta }) {
   if (delta > 0) return <span className="mv up"><span className="ar">▲</span>{delta}</span>
@@ -53,6 +54,7 @@ export default function Row({ row, move = 0, entering = false }) {
         <MedalCount kind="s" label="Silver" count={row.silver} />
         <MedalCount kind="b" label="Bronze" count={row.bronze} />
       </div>
+      <div className="pts" aria-label={`Points ${points(row)}`}>{points(row)}</div>
     </div>
   )
 }

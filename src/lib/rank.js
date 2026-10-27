@@ -1,4 +1,4 @@
-// Hidden weighted points: used only for ordering, never displayed.
+// Weighted points: used for ordering and shown as the total column.
 export const WEIGHTS = Object.freeze({ gold: 3, silver: 2, bronze: 1 })
 
 export function points(r) {
