@@ -3,7 +3,7 @@
 import { mkdirSync } from 'node:fs'
 import sharp from 'sharp'
 
-const CODES = ['KMUTT', 'KMUTNB', 'KMITL', 'RMUTL', 'RMUTT', 'RUTS', 'RMUTS', 'RMUTI', 'RMUTK', 'RMUTP']
+const CODES = ['KMUTT', 'KMUTNB', 'KMITL', 'RMUTL', 'RMUTT', 'RMUTSV', 'RMUTSB', 'RMUTI', 'RMUTK', 'RMUTP']
 
 // Logo chips render at most 110 CSS px (leader row); 256 px covers a 2x display.
 // The header logo renders at most 70 CSS px tall; 160 px covers a 2x display.

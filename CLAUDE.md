@@ -18,7 +18,7 @@ Both: (a) hosted static site, and (b) offline bundle (`base: './'`, hash routing
 Registry (code, Thai name, logo, team color) is separate from medal counts, so a CSV only supplies counts.
 Columns: `University, ThaiName, Gold, Silver, Bronze` with an optional title line. Real customer layout is still to be confirmed; ask for one sample row.
 
-Universities (3 King Mongkut's + 7 Rajamangala): KMUTT, KMUTNB, KMITL, RMUTL, RMUTT, RUTS, RMUTS, RMUTI, RMUTK, RMUTP. Team colors are in the prototype's `SAMPLE`.
+Universities (3 King Mongkut's + 7 Rajamangala): KMUTT, KMUTNB, KMITL, RMUTL, RMUTT, RMUTSV, RMUTSB, RMUTI, RMUTK, RMUTP. Team colors are in the prototype's `SAMPLE`.
 
 ## Ranking
 Hidden weighted points: Gold 3, Silver 2, Bronze 1. Tiebreak gold, silver, bronze, name. Total points are shown in a column after Bronze (customer feedback 2026-10-26); no GAP column. Put this in a pure `rank.js` with Vitest tests.
