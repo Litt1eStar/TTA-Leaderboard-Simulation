@@ -44,9 +44,9 @@ export default function Row({ row, move = 0, entering = false }) {
         <div className="txt">
           <span className="codeline">
             <span className="code">{row.code}</span>
-            {leader && <span className="p1tag">★ Leader</span>}
+            {row.thaiName && <span className="name" lang="th">{row.thaiName}</span>}
           </span>
-          {row.thaiName && <span className="name" lang="th">{row.thaiName}</span>}
+          {leader && <span className="p1tag">★ Leader</span>}
         </div>
       </div>
       <div className="medals">
